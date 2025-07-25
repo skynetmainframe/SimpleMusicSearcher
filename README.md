@@ -140,3 +140,37 @@ This project will demonstrate your ability to:
   * Manage a full-stack project.
 
 Good luck with your "Simple Music Searcher"\! It sounds like a fantastic way to impress potential employers or collaborators. Do you want to start by setting up the basic Angular and Spring Boot projects, or dive straight into the Docker configuration?"
+
+I also asked Gemini if I can use the SDKs on AWS for coding and not use AWS's cloud services. Here is the response:
+
+This is an excellent clarification! You're completely right that using AWS SDKs locally for development purposes, without deploying your application to AWS cloud services, incurs zero cost directly from AWS.
+
+Here's why:
+
+    SDKs are Libraries: The AWS SDKs (for Java, JavaScript/Angular, etc.) are simply software libraries that you include in your project. They contain code that makes it easier to interact with AWS services, but they don't run on AWS themselves. They run on your local machine (or in your Docker containers, which will also be running locally).
+
+    No Service Consumption: When you use an SDK to make an API call, you're usually interacting with an AWS service (like S3 for storage, Lambda for serverless functions, EC2 for virtual servers, etc.). If you're not actually making calls to these live AWS services, you're not consuming any AWS resources, and therefore, you're not being charged.
+
+    "Cloud Services" vs. "SDKs": The cost comes from the cloud services themselves (e.g., storing data in S3, running a Lambda function, running an EC2 instance, transferring data in and out of AWS). You've explicitly stated you don't want to use their cloud services, which means you won't incur those charges.
+
+Your situation on a shared PC:
+
+Since you can't do anything locally on the machine, your plan to use Docker is even more crucial. You'll be using Docker to create isolated environments where your Angular frontend and Spring Boot backend can run. These Docker containers will be running on your shared PC, not on AWS.
+
+What you might incur costs for (unrelated to AWS SDKs directly):
+
+    Internet Usage: If your shared PC has metered internet usage, downloading the SDKs, dependencies (Maven for Java, npm for Angular), and Docker images will consume data. This is typically a negligible cost for most internet plans.
+
+    External Music APIs: This is the most significant potential cost. When your Spring Boot backend makes calls to Discogs, Spotify, Beatport, etc., you'll be subject to their API usage policies and any associated costs.
+
+        Free Tiers: Many music APIs offer free tiers for basic usage, which might be sufficient for a portfolio project.
+
+        Rate Limits: Be mindful of rate limits on these APIs to avoid getting blocked or incurring unexpected charges if you exceed free tiers.
+
+        Developer Accounts: You'll likely need developer accounts with each of these services.
+
+In summary:
+
+You can code your "Simple Music Searcher" using AWS SDKs for development on your shared PC (via Docker) with zero direct cost from AWS. Your only potential costs related to the application itself would be for exceeding free tiers or rate limits on the external music APIs you integrate with.
+
+This is a very cost-effective approach for showcasing your skills!
